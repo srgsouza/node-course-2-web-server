@@ -4,6 +4,7 @@ const express = require('express'); //web framework for nodejs
 const hbs = require('hbs'); // Express.js template engine plugin for Handlebars
 const fs = require('fs');
 
+const port = process.env.PORT || 3000; // Needed for Heroku - 'process.env' stores the environment variables/values
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');  // allows for the use of Handlebars partials (reusable parts of a webpage)
@@ -63,6 +64,6 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server is up on port 3000');
+app.listen(port, () => {
+  console.log(`Server is up on port ${port}`);
 });
