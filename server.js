@@ -40,11 +40,6 @@ app.use((req, res, next) => { // next() is required to tell the function when to
 app.use(express.static(__dirname + '/public'));   // 'app.use' is how we register a middleware. It takes a funciton
 
 app.get('/', (req, res) => {
-  // res.send('<h1>Hello Express</h1>');
-  // res.send({
-  //   name: 'serg',
-  //   likes: ['biking', 'karting']
-  // });
   res.render('home.hbs', {
     pageTitle: 'Home Page',
     welcomeMessage: 'Hi there. Welcome to this site',
@@ -64,6 +59,12 @@ app.get('/bad', (req, res) => {
   });
 });
 
-app.listen(port, () => {
+app.get('/projects', (req, res) => {
+  res.render('projects.hbs', {
+    pageTitle: 'Projects Page',
+  });
+});
+
+app.listen(3000, () => {
   console.log(`Server is up on port ${port}`);
 });
