@@ -65,6 +65,7 @@ app.get('/projects', (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+// TODO add error handler i.e. port already in use.
+app.listen(port, () => {
   console.log(`Server is up on port ${port}`);
 });
